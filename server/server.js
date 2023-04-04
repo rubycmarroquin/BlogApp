@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.json({ message: "This is from My template ExpressJS with React-Vite" });
 });
 
-// get request to games table 
+// get request to games table
 app.get("/reviews", async (req, res) => {
   try {
     const { rows: reviews } = await db.query("SELECT * FROM games");
@@ -58,7 +58,7 @@ app.post("/reviews", async (req, res) => {
   }
 });
 
-// delete request 
+// delete request
 app.delete("/reviews/:postId", async (req, res) => {
   try {
     const post_id = req.params.postId;
@@ -72,27 +72,35 @@ app.delete("/reviews/:postId", async (req, res) => {
 });
 
 //A put request - Update a student
-app.put("/api/students/:studentId", async (req, res) => {
-  //console.log(req.params);
+app.put("/reviews/:postId", async (req, res) => {
   //This will be the id that I want to find in the DB - the student to be updated
-  const studentId = req.params.studentId;
-  const updatedStudent = {
-    id: req.body.id,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    iscurrent: req.body.is_current,
+  const post_id = req.params.postId;
+  const updateReview = {
+    game_name: req.body.game_name,
+    title: req.body.title,
+    console: req.body.console,
+    rating: req.body.rating,
+    recommendation: req.body.recommendation,
+    username: req.body.username,
+    post: req.body.post,
+    image_url: req.body.image_url,
   };
-  console.log("In the server from the url - the student id", studentId);
+  console.log("In the server from the url - the student id", post_id);
   console.log(
     "In the server, from the react - the student to be edited",
-    updatedStudent
+    updateReview
   );
   // UPDATE students SET lastname = "something" WHERE id="16";
-  const query = `UPDATE students SET firstname=$1, lastname=$2, is_current=$3 WHERE id=${studentId} RETURNING *`;
+  const query = `update games set game_name=$1, title=$2, console=$3, rating=$4, recommendation=$5, username=$6, post=$7, image_url=$8 where post_id = ${post_id} RETURNING *`;
   const values = [
-    updatedStudent.firstname,
-    updatedStudent.lastname,
-    updatedStudent.iscurrent,
+    updateReview.game_name,
+    updateReview.title,
+    updateReview.console,
+    updateReview.rating,
+    updateReview.recommendation,
+    updateReview.username,
+    updateReview.post,
+    updateReview.image_url,
   ];
   try {
     const updated = await db.query(query, values);
