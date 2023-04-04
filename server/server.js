@@ -12,14 +12,14 @@ app.use(express.json());
 
 // creates an endpoint for the route "/""
 app.get('/', (req, res) => {
-    res.json({ message: 'Hola, from My template ExpressJS with React-Vite' });
+    res.json({ message: 'This is from My template ExpressJS with React-Vite' });
 });
 
 // create the get request for students in the endpoint '/api/students'
-app.get('/api/students', async (req, res) => {
+app.get('/reviews', async (req, res) => {
     try {
-        const { rows: students } = await db.query('SELECT * FROM students');
-        res.send(students);
+        const { rows: reviews } = await db.query('SELECT * FROM games');
+        res.send(reviews);
     } catch (e) {
         return res.status(400).json({ e });
     }
