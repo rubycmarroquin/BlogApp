@@ -22,7 +22,7 @@ const ListStudents = () => {
 
     useEffect(() => {
         loadStudents();
-    }, [students]);
+    }, []);
 
     const onSaveStudent = (newStudent) => {
         //console.log(newStudent, "From the parent - List of Students");

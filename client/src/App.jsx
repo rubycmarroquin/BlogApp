@@ -1,7 +1,7 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavBar from './components/Navbar'
-import ListStudents from './components/ListStudents'
+import ListReviews from './components/ListPosts';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <MyNavBar />
-      <ListStudents />
+      <ListReviews />
 
     </div>
   )

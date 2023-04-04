@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import MyForm from "./Form";
 import Post from "./Post";
+import ReviewForm from "./ReviewForm";
 
 const ListReviews = () => {
   // this is my original state with an array of game reviews
@@ -65,7 +65,7 @@ const ListReviews = () => {
           })}
         </ul>
       </div>
-      <MyForm
+      <ReviewForm
         key={editingReview ? editingReview.post_id : null}
         onSaveReview={onSaveReview}
         editingReview={editingReview}
