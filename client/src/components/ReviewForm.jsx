@@ -40,7 +40,7 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
     setGameReview((gameReview) => ({ ...gameReview, recommendation }));
   };
   const handleUsername = (event) => {
-    const username = event.target.checked;
+    const username = event.target.value;
     setGameReview((gameReview) => ({ ...gameReview, username }));
   };
 
@@ -69,7 +69,7 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
 
   //A function to handle the post request
   const postReview = (newReview) => {
-    return fetch("http://localhost:8080/api/students", {
+    return fetch("http://localhost:8080/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newReview),
@@ -78,10 +78,7 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
         return response.json();
       })
       .then((data) => {
-        //console.log("From the post ", data);
-        //I'm sending data to the List of Students (the parent) for updating the list
         onSaveReview(data);
-        //this line just for cleaning the form
         clearForm();
       });
   };
@@ -107,9 +104,9 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (gameReview.post_id) {
-      putStudent(gameReview);
+      putReview(gameReview);
     } else {
-      postStudent(gameReview);
+      postReview(gameReview);
     }
   };
 
@@ -148,10 +145,21 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
           onChange={handleConsole}
         />
       </Form.Group>
+      <Form.Group>
+        <Form.Label>Rating: </Form.Label>
+        <input
+          type="text"
+          id="add-rating"
+          placeholder="Rating (out of 5)"
+          required
+          value={gameReview.rating || ""}
+          onChange={handleRating}
+        />
+      </Form.Group>
       <Form.Check
         type={"checkbox"}
         id={`isRecommended`}
-        checked={gameReview.recommendation}
+        checked={gameReview.recommendation || false}
         onChange={handleRecommendation}
         label={`Do you recommend this game?`}
       />
@@ -162,29 +170,29 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
           id="add-username"
           placeholder="Username"
           required
-          value={gameReview.username}
+          value={gameReview.username || ""}
           onChange={handleUsername}
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label></Form.Label>
+        <Form.Label>Blog Post: </Form.Label>
         <input
           type="text"
           id="add-post"
           placeholder="What are your thoughts?"
           required
-          value={gameReview.post}
+          value={gameReview.post || ""}
           onChange={handlePostText}
         />
       </Form.Group>
       <Form.Group>
-        <Form.Label></Form.Label>
+        <Form.Label>Image URL:</Form.Label>
         <input
           type="text"
           id="add-image"
           placeholder="Enter Image URL"
           required
-          value={gameReview.image_url}
+          value={gameReview.image_url || ""}
           onChange={handleImageURL}
         />
       </Form.Group>
