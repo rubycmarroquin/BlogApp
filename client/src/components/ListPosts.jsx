@@ -7,14 +7,14 @@ const ListReviews = () => {
   const [gameReviews, setGameReviews] = useState([]);
 
   //this is the state needed for the UpdateRequest
-  const [editingReview, setGameReview] = useState(null);
+  const [editingReview, setEditingReview] = useState(null);
 
   const loadGameReviews = () => {
     // A function to fetch the list of reviews that will be load anytime that list change
     fetch("http://localhost:8080/reviews")
       .then((response) => response.json())
       .then((reviews) => {
-        setGameReview(reviews);
+        setGameReviews(reviews);
       });
   };
 
@@ -44,7 +44,7 @@ const ListReviews = () => {
 
   //A function to handle the Update functionality
   const onUpdate = (toUpdateReview) => {
-    setEditingStudent(toUpdateReview);
+    setEditingReview(toUpdateReview);
   };
 
   return (
