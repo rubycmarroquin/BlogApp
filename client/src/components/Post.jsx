@@ -22,8 +22,8 @@ const Post = ({ gameReview, toUpdate, toDelete }) => {
         <Card.Body>Rating: {gameReview.rating}/5</Card.Body>
         <Card.Body>Recommended: {gameReview.recommendation}</Card.Body>
         <Card.Body>{gameReview.post}</Card.Body>
-        <img src={gameReview.image_url} alt="Game Image"/>
-        <Card.body>Post by: {gameReview.username}</Card.body>
+        <img style={{height: '25%', width: '50%'}}src={gameReview.image_url} alt="Game Image"/>
+        <Card.Body>Post by: {gameReview.username}</Card.Body>
         <Button
           variant="outline-danger"
           onClick={() => {
