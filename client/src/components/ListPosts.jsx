@@ -11,7 +11,7 @@ const ListReviews = () => {
 
   const loadGameReviews = () => {
     // A function to fetch the list of reviews that will be load anytime that list change
-    fetch("http://localhost:8080/api/students")
+    fetch("http://localhost:8080/reviews")
       .then((response) => response.json())
       .then((reviews) => {
         setGameReview(reviews);
