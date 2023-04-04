@@ -85,7 +85,7 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
 
   //A function to handle the post request
   const putReview = (toEditReview) => {
-    return fetch(`http://localhost:8080/api/students/${toEditReview.id}`, {
+    return fetch(`http://localhost:8080/reviews/${toEditReview.post_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toEditReview),
@@ -198,9 +198,9 @@ const ReviewForm = ({ onSaveReview, editingReview, onUpdateReview }) => {
       </Form.Group>
       <Form.Group>
         <Button type="submit" variant="outline-success">
-          {gameReview.id ? "Edit Post" : "Create Post"}
+          {gameReview.post_id ? "Edit Post" : "Create Post"}
         </Button>
-        {gameReview.id ? (
+        {gameReview.post_id ? (
           <Button type="button" variant="outline-warning" onClick={clearForm}>
             Cancel
           </Button>

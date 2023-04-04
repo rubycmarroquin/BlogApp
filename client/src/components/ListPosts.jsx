@@ -33,7 +33,7 @@ const ListReviews = () => {
 
   //A function to handle the Delete funtionality
   const onDelete = (gameReview) => {
-    return fetch(`http://localhost:8080/api/students/${gameReview.post_id}`, {
+    return fetch(`http://localhost:8080/reviews/${gameReview.post_id}`, {
       method: "DELETE",
     }).then((response) => {
       if (response.ok) {
