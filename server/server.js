@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.json({ message: "This is from My template ExpressJS with React-Vite" });
 });
 
-// create the get request for students in the endpoint '/api/students'
+// get request to games table 
 app.get("/reviews", async (req, res) => {
   try {
     const { rows: reviews } = await db.query("SELECT * FROM games");
@@ -58,12 +58,12 @@ app.post("/reviews", async (req, res) => {
   }
 });
 
-// delete request for students
-app.delete("/api/students/:studentId", async (req, res) => {
+// delete request 
+app.delete("/reviews/:postId", async (req, res) => {
   try {
-    const studentId = req.params.studentId;
-    await db.query("DELETE FROM students WHERE id=$1", [studentId]);
-    console.log("From the delete request-url", studentId);
+    const post_id = req.params.postId;
+    await db.query("DELETE FROM games WHERE post_id=$1", [post_id]);
+    console.log("From the delete request-url", post_id);
     res.status(200).end();
   } catch (e) {
     console.log(e);
