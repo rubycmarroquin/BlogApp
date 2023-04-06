@@ -43,20 +43,20 @@ const ListReviews = () => {
     <>
     <div className="mybody">
       <div className="list-students">
-        <h1>Game Reviews by Ruby</h1>
-        <ul>
+        <h1 className="LatestPosts">Latest Posts</h1>
+        <div className="BlogPostCardsDiv">
           {gameReviews.map((review) => {
             return (
-              <li key={review.post_id}>
+              <div className="BlogPostCards" key={review.post_id}>
                 <Post
                   gameReview={review}
                   toDelete={onDelete}
                   updateReview={updateReview}
                 />
-              </li>
+              </div>
             );
           })}
-        </ul>
+          </div>
       </div>
     </div>
     </>
