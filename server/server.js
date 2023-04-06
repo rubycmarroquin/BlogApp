@@ -126,3 +126,41 @@ app.get('/admins', async (req, res) => {
     return res.status(400).json({ e });
   }
 })
+
+/*********** Threads Section ***********/
+//retrieve all threads 
+app.get('/threads', async (req, res) => {
+  try {
+    const { rows: admins } = await db.query("SELECT * FROM threads");
+    res.send(admins);
+  } catch (e) {
+    return res.status(400).json({ e });
+  }
+})
+
+//add new db value
+app.post("/threads", async (req, res) => {
+  try {
+    const result = await db.query(
+      `insert into threads(thread_id, title) values(nextval('thread_seq'), $1) RETURNING *`,
+      [
+       req.body.title
+      ]
+    );
+    console.log(result.rows[0]);
+    res.json(result.rows[0]);
+  } catch (e) {
+    console.log(e);
+    return res.status(400).json({ e });
+  }
+});
+
+/*********** Comments Section ***********/
+app.get('/replies/:id', async (req, res) => {
+  try {
+    const { rows: comments } = await db.query(`SELECT * FROM comments WHERE thread_id = ${req.params.id}`);
+    res.send(comments);
+  } catch (e) {
+    return res.status(400).json({ e });
+  }
+})
