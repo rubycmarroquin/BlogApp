@@ -116,3 +116,13 @@ app.put("/reviews/:postId", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Hola, Server listening on ${PORT}`);
 });
+
+/*************** Admins table ***************/
+app.get('/admins', async (req, res) => {
+  try {
+    const { rows: admins } = await db.query("SELECT * FROM admins");
+    res.send(admins);
+  } catch (e) {
+    return res.status(400).json({ e });
+  }
+})
