@@ -1,48 +1,40 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import * as ioicons from "react-icons/io5";
-import EditModal from "./EditModal";
 import { useState } from "react";
+import { Card, Button } from "react-bootstrap";
+import EditModal from "./EditModal";
 import FullPost from "./FullPost";
+import * as ioicons from "react-icons/io5";
 
 const Post = ({ gameReview, toUpdate, toDelete, ...props }) => {
+  // handles the modal for full post test
   const [show, setShow] = useState(false);
 
+  // handles showing admin buttons
+  const [adminPrivs, setAdminPrivs] = useState(false);
+
+  // shows modal
   const handleShow = () => {
     setShow(true);
   };
 
+  // hides modal
   const handleClose = () => {
-    // why doesn't this work?
     setShow(false);
   };
 
+  // deletes review
   const onDelete = (toDeleteReview) => {
-    toDelete(toDeleteReview);
+    const response = window.prompt("Are you sure? (yes/no)");
+    response.toLowerCase() === "yes" ? toDelete(toDeleteReview) : false;
   };
 
-  const buildStars = (rating) => {
-    const yellowStars = parseInt(rating);
-    const grayStars = 5 - yellowStars;
-    let stars = [];
-    for (let i = 0; i < yellowStars; i++) {
-      stars.push(
-        <ioicons.IoStar
-          key={`${i}+star`}
-          style={{ fontSize: "20px", color: "yellow" }}
-        />
-      );
+  const handleButtonsShown = () => {
+    const adminPass = window.prompt("Enter Admin Password");
+    if (adminPass === "Testing") {
+      setAdminPrivs(true);
+    } else {
+      alert("Wrong password");
     }
-    for (let j = 0; j < grayStars; j++) {
-      stars.push(
-        <ioicons.IoStar
-          key={`${j}`}
-          style={{ fontSize: "20px", color: "gray" }}
-        />
-      );
-    }
-    return stars;
   };
 
   const recommended = (recommend) => {
@@ -74,21 +66,29 @@ const Post = ({ gameReview, toUpdate, toDelete, ...props }) => {
         <Card.Body style={{ fontSize: "small", marginTop: "5px" }}>
           <em>Posted by: {gameReview.username}</em>
         </Card.Body>
-        <div className="CardButtons" style={{ marginTop: "-15px" }}>
-          <Button
-            style={{ marginRight: "5px" }}
-            variant="outline-danger"
-            onClick={() => {
-              onDelete(gameReview);
-            }}
-          >
-            <ioicons.IoTrash />
-          </Button>
-          <EditModal
-            gameReview={gameReview}
-            updateReview={props.updateReview}
-          />
-        </div>
+        {adminPrivs ? (
+          <div className="CardButtons" style={{ marginTop: "-15px" }}>
+            <Button
+              style={{ marginRight: "5px" }}
+              variant="outline-danger"
+              onClick={() => {
+                onDelete(gameReview);
+              }}
+            >
+              <ioicons.IoTrash />
+            </Button>
+            <EditModal
+              gameReview={gameReview}
+              updateReview={props.updateReview}
+            />
+          </div>
+        ) : (
+          <div style={{ marginTop: "-10px" }}>
+            <Button size="sm" onClick={handleButtonsShown}>
+              Admin?
+            </Button>
+          </div>
+        )}
         <Card.Body style={{ marginTop: "10px" }}>
           Recommended: {recommended(gameReview.recommendation)}
         </Card.Body>
@@ -106,3 +106,27 @@ const Post = ({ gameReview, toUpdate, toDelete, ...props }) => {
 };
 
 export default Post;
+
+/*********** Other functions ***********/
+const buildStars = (rating) => {
+  const yellowStars = parseInt(rating);
+  const grayStars = 5 - yellowStars;
+  let stars = [];
+  for (let i = 0; i < yellowStars; i++) {
+    stars.push(
+      <ioicons.IoStar
+        key={`${i}+star`}
+        style={{ fontSize: "20px", color: "yellow" }}
+      />
+    );
+  }
+  for (let j = 0; j < grayStars; j++) {
+    stars.push(
+      <ioicons.IoStar
+        key={`${j}`}
+        style={{ fontSize: "20px", color: "gray" }}
+      />
+    );
+  }
+  return stars;
+};
