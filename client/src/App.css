@@ -1,7 +1,11 @@
 .App {
   min-height: 100vh;
-  background-color: rgb(238, 232, 232);
+  background-color: black;
   margin: 5px;
+  background-image: url("assets/background.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 2080px;
 }
 
 .mybody {
@@ -10,41 +14,31 @@
   padding: 1em;
 }
 
-a.navbar-brand {
-  margin-inline-start: -5em;
-}
-
-.nav-link {
-  color: white !important;
-  margin-left: 5em;
-}
-
 .list-students {
   text-align: center;
   margin-top: 25px;
-  flex: 1
+  flex: 1;
 }
 
 ul {
   list-style-type: none;
 }
 
-
-form {
+/* form {
   flex-direction: column;
   align-items: center;
   text-align: left;
   margin-top: 3em;
   flex: 1;
-}
+} */
 
-input[type=text] {
+input[type="text"] {
   display: inline-block;
   margin-top: -10px;
   width: 100%;
   font-size: 15px;
   border-radius: 2px;
-  border: 3px solid #98d0f1
+  border: 3px solid #98d0f1;
 }
 
 button.btn.btn-primary {
@@ -70,4 +64,39 @@ button.btn.btn-primary {
 .card-body {
   margin-left: 2em;
   margin-right: 2em;
+}
+
+.BlogCards {
+  background-color: blue;
+  height: 550px;
+  width: 550px;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.CardBody {
+  background-color: orange;
+  height: 500px;
+  width: 500px;
+}
+
+.CreateFormDiv {
+  background-color: rgba(52, 52, 52, 0.893);
+  margin: auto;
+  width: 50%;
+  padding: 0px 20px 20px;
+  border-radius: 20px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
+    0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate;
+  margin-top: 3em;
+  padding-bottom: 20px;
+}
+
+.CreateFormTitle {
+  padding: 10px;
 }
