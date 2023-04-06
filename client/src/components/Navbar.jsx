@@ -11,7 +11,7 @@ function NavigationBar() {
           <Nav className="me-auto">
             <Nav.Link href="/postreview">Create Post</Nav.Link>
             <Nav.Link href="/discussion">Dicussions</Nav.Link>
-            <Nav.Link href="/contactus">Contact Us</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
