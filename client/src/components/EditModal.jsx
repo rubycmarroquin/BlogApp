@@ -29,8 +29,8 @@ function EditModal({gameReview, updateReview}) {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="EditForm">
-      <Button variant="primary" onClick={handleShow}>
+    <div className='EditForm' >
+      <Button bsPrefix="btn" variant="primary" onClick={handleShow}>
         Edit Post
       </Button>
       <Modal show={show} onHide={handleClose}>

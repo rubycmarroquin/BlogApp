@@ -2,10 +2,11 @@
   min-height: 100vh;
   background-color: black;
   margin: 5px;
-  background-image: url("assets/background.gif");
+  background-image: url("assets/background3.gif");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 2080px;
+  background-size: 2150px;
+  color: rgb(134, 133, 133);
 }
 
 .mybody {
@@ -23,14 +24,6 @@
 ul {
   list-style-type: none;
 }
-
-/* form {
-  flex-direction: column;
-  align-items: center;
-  text-align: left;
-  margin-top: 3em;
-  flex: 1;
-} */
 
 input[type="text"] {
   display: inline-block;
@@ -66,27 +59,27 @@ button.btn.btn-primary {
   margin-right: 2em;
 }
 
-.BlogCards {
-  background-color: blue;
-  height: 550px;
-  width: 550px;
-  margin: 5px;
-  border-radius: 20px;
-}
-
 .CardBody {
-  background-color: orange;
-  height: 500px;
-  width: 500px;
+  background-color: rgba(52, 52, 52, 0.893);
+  margin: auto;
+  width: 80%;
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  /* color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff,
+    0 0 20px #0ba9ca, 0 0 30px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate; */
+  margin-bottom: 20px;
 }
 
 .CreateFormDiv {
-  background-color: rgba(52, 52, 52, 0.893);
+  background-color: rgba(52, 52, 52, 0.929);
   margin: auto;
   width: 50%;
   padding: 0px 20px 20px;
   border-radius: 20px;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
   border-radius: 25px;
   color: #fff;
   box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
@@ -99,4 +92,41 @@ button.btn.btn-primary {
 
 .CreateFormTitle {
   padding: 10px;
+}
+
+.BlogPostCardsDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.CardButtons {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.EditPost {
+  border-radius: 10px;
+  background-color: #0ba9ca;
+  padding: 5px 5px 5px 5px;
+  border-width: 0px;
+}
+
+.LatestPosts {
+  font-size: 80px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #39fce9, 0 0 40px 39fce9, 0 0 50px #39fce9;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #76f4e7, 0 0 40px #76f4e7, 0 0 50px #76f4e7;
+  }
 }
