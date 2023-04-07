@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import RepliesSection from "./ListReplies";
 
 const CommentsSection = () => {
   const [thread, setThread] = useState({
@@ -56,9 +57,11 @@ const CommentsSection = () => {
   return (
     <>
       <main className="home">
-        <h2 className="homeTitle">Create a Thread</h2>
-        <Form className="homeForm" onSubmit={handleSubmit}>
-          <div className="home__container">
+        <Form className="ThreadWHoleForm" onSubmit={handleSubmit}>
+          <h2 style={{ paddingTop: "20px" }} className="homeTitle">
+            Create a Thread
+          </h2>
+          <div className="ThreadFormSec">
             <label htmlFor="thread">Title / Discussion </label>
             <input
               type="text"
@@ -69,13 +72,17 @@ const CommentsSection = () => {
               onChange={handleTitle}
             />
           </div>
-          <button className="homeBtn">CREATE THREAD</button>
+          <Button
+            style={{ marginBottom: "25px" }}
+            type="submit"
+            className="homeBtn"
+          >
+            Create Thread
+          </Button>
         </Form>
-        <div className="thread__container">
+        <div style={{ marginTop: "25x" }} className="thread__container">
           {allThreads.map((thread, index) => (
-            <div className="thread__item" key={`${index}+thread`}>
-              <p>{thread.title}</p>
-            </div>
+            <RepliesSection thread={thread} key={`${index}` + thread} />
           ))}
         </div>
       </main>

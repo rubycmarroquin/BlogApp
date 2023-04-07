@@ -127,7 +127,7 @@ app.get('/admins', async (req, res) => {
   }
 })
 
-/*********** Threads Section ***********/
+/********************** Threads Section **********************/
 //retrieve all threads 
 app.get('/threads', async (req, res) => {
   try {
@@ -155,7 +155,7 @@ app.post("/threads", async (req, res) => {
   }
 });
 
-/*********** Comments Section ***********/
+/********************** Comments Section **********************/
 app.get('/replies/:id', async (req, res) => {
   try {
     const { rows: comments } = await db.query(`SELECT * FROM comments WHERE thread_id = ${req.params.id}`);
@@ -164,3 +164,26 @@ app.get('/replies/:id', async (req, res) => {
     return res.status(400).json({ e });
   }
 })
+
+app.post("/replies", async (req, res) => {
+  try {
+    const newComment = {
+      comment_text: req.body.comment_text,
+      thread_id: req.body.thread_id,
+      username: req.body.username
+    };
+    const result = await db.query(
+      `insert into comments(comment_id, comment_text, thread_id, username) values(nextval('comment_id'), $1, $2, $3) RETURNING *`,
+      [
+       newComment.comment_text,
+       newComment.thread_id,
+       newComment.username
+      ]
+    );
+    console.log(result.rows[0]);
+    res.json(result.rows[0]);
+  } catch (e) {
+    console.log(e);
+    return res.status(400).json({ e });
+  }
+});
