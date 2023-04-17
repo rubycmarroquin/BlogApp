@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-const EditingForm = ( { review, updateReview, handleClose} ) => {
+const EditingForm = ({ review, updateReview, handleClose }) => {
   // This is the original State with no initial blog content
   const [gameReview, setGameReview] = useState(
     review || {
-      game_name:"",
+      game_name: "",
       title: "",
       console: "",
       rating: "",
@@ -39,7 +39,7 @@ const EditingForm = ( { review, updateReview, handleClose} ) => {
     const recommendation = event.target.checked;
     setGameReview((gameReview) => ({ ...gameReview, recommendation }));
   };
-  
+
   const handleUsername = (event) => {
     const username = event.target.value;
     setGameReview((gameReview) => ({ ...gameReview, username }));
@@ -90,100 +90,100 @@ const EditingForm = ( { review, updateReview, handleClose} ) => {
     e.preventDefault();
     putReview(gameReview);
     handleClose();
-
   };
 
   return (
     <>
-    <Form className="form-students" onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Game Title: </Form.Label>
-        <input
-          type="text"
-          id="add-game-name"
-          placeholder="Game Title"
-          required
-          value={gameReview.game_name || ""}
-          onChange={handleGameName}
+      <Form className="form-students" onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Game Title: </Form.Label>
+          <input
+            type="text"
+            id="add-game-name"
+            placeholder="Game Title"
+            required
+            value={gameReview.game_name || ""}
+            onChange={handleGameName}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Title: </Form.Label>
+          <input
+            type="text"
+            id="add-tile"
+            placeholder="Post Title"
+            required
+            value={gameReview.title || ""}
+            onChange={handleTitle}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Console</Form.Label>
+          <input
+            type="text"
+            id="add-console"
+            placeholder="Console / Device Played"
+            required
+            value={gameReview.console || ""}
+            onChange={handleConsole}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Rating: </Form.Label>
+          <input
+            type="text"
+            id="add-rating"
+            placeholder="Rating (out of 5)"
+            required
+            value={gameReview.rating || ""}
+            onChange={handleRating}
+          />
+        </Form.Group>
+        <Form.Check
+          type={"checkbox"}
+          id={`isRecommended`}
+          checked={gameReview.recommendation || false}
+          onChange={handleRecommendation}
+          label={`Do you recommend this game?`}
         />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Title: </Form.Label>
-        <input
-          type="text"
-          id="add-tile"
-          placeholder="Post Title"
-          required
-          value={gameReview.title || ""}
-          onChange={handleTitle}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Console</Form.Label>
-        <input
-          type="text"
-          id="add-console"
-          placeholder="Console / Device Played"
-          required
-          value={gameReview.console || ""}
-          onChange={handleConsole}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Rating: </Form.Label>
-        <input
-          type="text"
-          id="add-rating"
-          placeholder="Rating (out of 5)"
-          required
-          value={gameReview.rating || ""}
-          onChange={handleRating}
-        />
-      </Form.Group>
-      <Form.Check
-        type={"checkbox"}
-        id={`isRecommended`}
-        checked={gameReview.recommendation || false}
-        onChange={handleRecommendation}
-        label={`Do you recommend this game?`}
-      />
-      <Form.Group>
-        <Form.Label>Username: </Form.Label>
-        <input
-          type="text"
-          id="add-username"
-          placeholder="Username"
-          required
-          value={gameReview.username || ""}
-          onChange={handleUsername}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Blog Post: </Form.Label>
-        <input
-          type="text"
-          id="add-post"
-          placeholder="What are your thoughts?"
-          required
-          value={gameReview.post || ""}
-          onChange={handlePostText}
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Image URL:</Form.Label>
-        <input
-          type="text"
-          id="add-image"
-          placeholder="Enter Image URL"
-          required
-          value={gameReview.image_url || ""}
-          onChange={handleImageURL}
-        />
-      </Form.Group>
-        <br/><Button type="submit" variant="outline-success">
+        <Form.Group>
+          <Form.Label>Username: </Form.Label>
+          <input
+            type="text"
+            id="add-username"
+            placeholder="Username"
+            required
+            value={gameReview.username || ""}
+            onChange={handleUsername}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Blog Post: </Form.Label>
+          <input
+            type="text"
+            id="add-post"
+            placeholder="What are your thoughts?"
+            required
+            value={gameReview.post || ""}
+            onChange={handlePostText}
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Image URL:</Form.Label>
+          <input
+            type="text"
+            id="add-image"
+            placeholder="Enter Image URL"
+            required
+            value={gameReview.image_url || ""}
+            onChange={handleImageURL}
+          />
+        </Form.Group>
+        <br />
+        <Button type="submit" variant="outline-success">
           Edit Post
         </Button>
-    </Form>
+      </Form>
     </>
   );
 };

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 .App {
   min-height: 100vh;
   background-color: black;
@@ -161,7 +163,87 @@ button.btn.btn-primary {
   padding-bottom: 20px;
 }
 
-input[type='password'] {
+input[type="password"] {
   width: 100%;
   height: auto;
+}
+
+.ThreadFormSec {
+  width: 80%;
+}
+
+.ThreadWHoleForm {
+  align-items: center;
+  background-color: rgba(52, 52, 52, 0.929);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  padding: 0px 20px 20px;
+  border-radius: 20px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
+    0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate;
+  margin-top: 3em;
+  padding-bottom: 20px;
+}
+
+.thread__container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+  padding-bottom: 20px;
+}
+
+.ReplyFormOutter {
+  padding: 15px;
+  background-color: rgb(249, 247, 247);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.Responses {
+  background-color: rgb(231, 226, 226);
+  margin: 8px;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.AboutMainDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(52, 52, 52, 0.893);
+  margin: auto;
+  width: 70%;
+  border-radius: 25px;
+  color: white;
+  padding: 40px
+}
+
+#charimg {
+  height: 200px;
+  border-radius: 100px;
+}
+
+.socialicons {
+  color: white;
+}
+
+.socialicons:hover {
+  color: #39fce9;
+}
+
+#meSpan {
+  font-family: 'Great Vibes', cursive;
+  font-size: larger;
 }
