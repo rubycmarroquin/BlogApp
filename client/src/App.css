@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 .App {
   min-height: 100vh;
-  background-color: rgb(238, 232, 232);
+  background-color: black;
   margin: 5px;
+  background-image: url("assets/background3.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 2150px;
+  color: rgb(134, 133, 133);
 }
 
 .mybody {
@@ -10,41 +17,23 @@
   padding: 1em;
 }
 
-a.navbar-brand {
-  margin-inline-start: -5em;
-}
-
-.nav-link {
-  color: white !important;
-  margin-left: 5em;
-}
-
 .list-students {
   text-align: center;
   margin-top: 25px;
-  flex: 1
+  flex: 1;
 }
 
 ul {
   list-style-type: none;
 }
 
-
-form {
-  flex-direction: column;
-  align-items: center;
-  text-align: left;
-  margin-top: 3em;
-  flex: 1;
-}
-
-input[type=text] {
+input[type="text"] {
   display: inline-block;
   margin-top: -10px;
   width: 100%;
   font-size: 15px;
   border-radius: 2px;
-  border: 3px solid #98d0f1
+  border: 3px solid #98d0f1;
 }
 
 button.btn.btn-primary {
@@ -70,4 +59,191 @@ button.btn.btn-primary {
 .card-body {
   margin-left: 2em;
   margin-right: 2em;
+}
+
+.CardBody {
+  background-color: rgba(52, 52, 52, 0.893);
+  margin: auto;
+  width: 80%;
+  height: 400px;
+  border-radius: 20px;
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px; */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  margin-bottom: 20px;
+}
+
+.CreateFormDiv {
+  background-color: rgba(52, 52, 52, 0.929);
+  margin: auto;
+  width: 50%;
+  padding: 0px 20px 20px;
+  border-radius: 20px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
+    0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate;
+  margin-top: 3em;
+  padding-bottom: 20px;
+}
+
+.CreateFormTitle {
+  padding: 10px;
+}
+
+.BlogPostCardsDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.CardButtons {
+  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+}
+
+.EditPost {
+  border-radius: 10px;
+  background-color: #0ba9ca;
+  padding: 5px 5px 5px 5px;
+  border-width: 0px;
+}
+
+.LatestPosts {
+  font-size: 80px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #39fce9, 0 0 40px 39fce9,
+      0 0 50px #39fce9;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #76f4e7, 0 0 40px #76f4e7,
+      0 0 50px #76f4e7;
+  }
+}
+
+.CardTitle {
+  text-shadow: 0.1em 0.1em 0 hsl(185, 52%, 25%);
+}
+
+.LoginForm {
+  width: 80%;
+  align-items: center;
+}
+
+.LoginFormDiv {
+  align-items: center;
+  background-color: rgba(52, 52, 52, 0.929);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  padding: 0px 20px 20px;
+  border-radius: 20px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
+    0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate;
+  margin-top: 13em;
+  padding-bottom: 20px;
+}
+
+input[type="password"] {
+  width: 100%;
+  height: auto;
+}
+
+.ThreadFormSec {
+  width: 80%;
+}
+
+.ThreadWHoleForm {
+  align-items: center;
+  background-color: rgba(52, 52, 52, 0.929);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  padding: 0px 20px 20px;
+  border-radius: 20px;
+  border-radius: 25px;
+  color: #fff;
+  box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #39fce9, 0 0 30px #39fce9,
+    0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+  -webkit-animation: blink 0.7s infinite alternate;
+  animation: blink 0.7s infinite alternate;
+  margin-top: 3em;
+  padding-bottom: 20px;
+}
+
+.thread__container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+  padding-bottom: 20px;
+}
+
+.ReplyFormOutter {
+  padding: 15px;
+  background-color: rgb(249, 247, 247);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.Responses {
+  background-color: rgb(231, 226, 226);
+  margin: 8px;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.AboutMainDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(52, 52, 52, 0.893);
+  margin: auto;
+  width: 70%;
+  border-radius: 25px;
+  color: white;
+  padding: 40px
+}
+
+#charimg {
+  height: 200px;
+  border-radius: 100px;
+}
+
+.socialicons {
+  color: white;
+}
+
+.socialicons:hover {
+  color: #39fce9;
+}
+
+#meSpan {
+  font-family: 'Great Vibes', cursive;
+  font-size: larger;
 }
